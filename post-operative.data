@@ -1,7 +1,7 @@
 mid,low,excellent,mid,stable,stable,stable,15,A
 mid,high,excellent,high,stable,stable,stable,10,S
 high,low,excellent,high,stable,stable,mod-stable,10,A
-mid,low,good,high,stable,unstable,mod-stable,15,A 
+mid,low,good,high,stable,unstable,mod-stable,15,A
 mid,mid,excellent,high,stable,stable,stable,10,A
 high,low,good,mid,stable,stable,unstable,15,S
 mid,low,excellent,high,stable,stable,mod-stable,05,S

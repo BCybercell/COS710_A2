@@ -49,6 +49,9 @@ public class GeneticProgram extends Thread{
             //data/time_series_covid_19_confirmed.csv
             List<String[]> data = tk.readDataFile("post-operative.data");
             List<String[]> dataFixed = tk.fixClassImbalance(data);
+            List<List<String[]>> allData = tk.splitData(dataFixed);
+            List<String[]> train = allData.get(0);
+            List<String[]> test = allData.get(1);
             /*FileWriter csvWriter = new FileWriter("Results "+seed+".csv");
 
             csvWriter.append("Gen"); // Gen

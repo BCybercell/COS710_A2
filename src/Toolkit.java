@@ -100,11 +100,12 @@ public class Toolkit {
         try {
             String row;
             BufferedReader fileReader = new BufferedReader(new FileReader(path));
-            row = fileReader.readLine(); //First line. Headings
+            //row = fileReader.readLine(); //First line. Headings
             while ((row = fileReader.readLine()) != null) {
                 String[] data = row.split(",");
                 int len = data.length;
-                toReturn.add(data);
+                if (len > 1)
+                    toReturn.add(data);
 
             }
             fileReader.close();
@@ -118,23 +119,35 @@ public class Toolkit {
     }
 
     List<String[]> fixClassImbalance(List<String[]> oldData){
+        /*
+        * Makes sure that each class has at least 80 elements and no more than 100, fixes class imbalance
+        *
+        *
+        *
+        * */
         List<String[]> toReturn = new ArrayList<String[]>();
         Integer [] numberDecision = {0, 0, 0}; // I, S, A
+        int count = 0;
         for (String [] el: oldData) {
+            ++count;
+            //System.out.println(++count + " " + el[8]);
             toReturn.add(el);
 
             if (el[8].equals("I")){
                 numberDecision[0] = numberDecision[0]+1;
             }
-            if (el[8].equals("S")){
+            else if (el[8].equals("S")){
                 numberDecision[1] = numberDecision[1]+1;
             }
-            if (el[8].equals("A")){
+            else if (el[8].equals("A")){
                 numberDecision[2] = numberDecision[2]+1;
+            }
+            else {
+                System.out.println(el[8] +" " + count);
             }
         }
         System.out.println(numberDecision[0] + " "+ numberDecision[1] + " " + numberDecision[2]);
-
+        System.out.println(toReturn.size());
         while (numberDecision[0] < 80 ||numberDecision[1] < 80 || numberDecision[2] < 80){
 
             int len = toReturn.size();
@@ -154,7 +167,28 @@ public class Toolkit {
             }
         }
         System.out.println(numberDecision[0] + " "+ numberDecision[1] + " " + numberDecision[2]);
+        System.out.println(toReturn.size());
         return toReturn;
+    }
+
+    List<List<String[]>> splitData(List<String []> data){
+        List<String[]> train= new ArrayList<String[]>();
+        List<String[]> test= new ArrayList<String[]>();
+        for (String [] el:data
+             ) {
+            if (rand.nextDouble() > 0.15){ // 0.15 test to train ratio
+                train.add(el);
+            }
+            else {
+                test.add(el);
+            }
+        }
+
+        List<List<String[]>> allData = new ArrayList<>();
+        allData.add(train);
+        allData.add(test);
+        System.out.println("Train test ratio = "+allData.get(0).size()+ ":"+ allData.get(1).size());
+        return allData;
     }
 
     int[] popSize = {150, 300, 500};
