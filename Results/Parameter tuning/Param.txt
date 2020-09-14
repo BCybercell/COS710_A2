@@ -1,0 +1,2 @@
+maxTreeDepth = 20;
+initialTreeDepth = 4;

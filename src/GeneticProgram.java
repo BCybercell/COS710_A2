@@ -43,9 +43,9 @@ public class GeneticProgram extends Thread{
 //                    Thread.currentThread().getId() +
 //                    " is running");
             //ratio = tk.rand.nextDouble();
-            ratio = 0.01; // Test
-            maxTreeDepth = 20;
-            initialTreeDepth = 4;
+            ratio = 0.00; // Full tree causing issues
+            maxTreeDepth = 25;
+            initialTreeDepth = 5;
             createInitialPopulation(ratio);
             //data/time_series_covid_19_confirmed.csv
             List<String[]> data = tk.readDataFile("post-operative.data");
@@ -76,9 +76,10 @@ public class GeneticProgram extends Thread{
             csvWriter.append(Double.toString(ratio));
             csvWriter.append("\n");
             double tmpAccForPrint = 0.0;
-            for (int i = 0; i < 10000; i++) { //400 generations
+            int numGen = 10000;
+            for (int i = 0; i < numGen; i++) { //400 generations
 
-                if (i % 25 == 0) {
+                if (i % 200 == 0) {
                     System.out.println("Gen " + i + " best accuracy: " + tmpAccForPrint);
                 }
                 double sumAdjFit = 0.0;
@@ -118,6 +119,7 @@ public class GeneticProgram extends Thread{
                     t.accuracy = acc;
                     if (correct >= (total - (total * 0.15))) {
                         System.out.println("Early stop");
+                        numGen = -1;
                         break;
                     }
                 }
@@ -178,21 +180,7 @@ public class GeneticProgram extends Thread{
                 tmpAccForPrint = fittest.accuracy;
             }
 
-            for (int j = 0; j < populationSize * 0.5; j++) {
-                // TODO maybe modify?
-                double rand = tk.rand.nextDouble();
-                if (rand < 0.1) { // 10% range
-                    creation();
-                } else if (rand < 0.45) { // 35% range
-                    mutation();
-                } else if (rand < 0.7) { // 35% range
-                    crossover();
-                } else if (rand < 0.9) { //20% range
-                    reproduction();
-                }
 
-
-            }
 
 
             double sumAdjFit = 0.0;

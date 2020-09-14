@@ -158,8 +158,8 @@ public class Toolkit {
                 System.out.println(el[8] +" " + count);
             }
         }
-        System.out.println(numberDecision[0] + " "+ numberDecision[1] + " " + numberDecision[2]);
-        System.out.println(toReturn.size());
+//        System.out.println(numberDecision[0] + " "+ numberDecision[1] + " " + numberDecision[2]);
+//        System.out.println(toReturn.size());
         while (numberDecision[0] < 80 ||numberDecision[1] < 80 || numberDecision[2] < 80){
 
             int len = toReturn.size();
@@ -178,8 +178,8 @@ public class Toolkit {
                 toReturn.add(el);
             }
         }
-        System.out.println(numberDecision[0] + " "+ numberDecision[1] + " " + numberDecision[2]);
-        System.out.println(toReturn.size());
+//        System.out.println(numberDecision[0] + " "+ numberDecision[1] + " " + numberDecision[2]);
+//        System.out.println(toReturn.size());
         return toReturn;
     }
 

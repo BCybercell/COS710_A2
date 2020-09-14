@@ -120,7 +120,7 @@ public class Tree {
             return getSubtreeRecursive(root,nodeNum);
         }
         else return root;
-    } // TODO duplicate this for crossover/ mutation?
+    }
     Node getSubtreeRecursive(Node n,int nodeNum){
         nodeNumberStorage++;
         if (nodeNumberStorage == nodeNum){
