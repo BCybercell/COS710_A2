@@ -82,6 +82,18 @@ public class Toolkit {
         return 0;
     }
 
+    Integer getPos(String function){
+        int count = 0;
+        for (String s: functionSet
+        ) {
+            if (s.equals(function)){
+                return count;
+            }
+            count++;
+        }
+        return -1;
+    }
+
     String getRandomTerminal(){
         double r = rand.nextDouble();
         if (r <0.333){
@@ -191,7 +203,7 @@ public class Toolkit {
         return allData;
     }
 
-    int[] popSize = {150, 300, 500};
+    int[] popSize = {50, 100, 150};
     int[] tourSize = {2, 4, 6, 8};
     String[] functionSet = {"L-CORE", "L-SURF", "L-O2", "L-BP", "SURF-STBL", "CORE-STBL", "BP-STBL", "COMFORT"} ;
     Integer[] arity ={3, 3, 4, 3, 3, 3, 3, 21};

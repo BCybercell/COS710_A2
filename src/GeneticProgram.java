@@ -10,22 +10,22 @@ public class GeneticProgram extends Thread{
         seed = _seed;
         tk = toolkit;
         population=new ArrayList<Tree>();
-//        tournamentSize = tk.getTourSize();
-        tournamentSize = 6; // found to be the best
-//        populationSize = tk.getPopSize();
-        populationSize = 150; //found to be the best
+        tournamentSize = tk.getTourSize();
+//        tournamentSize = 6; // TODO Check
+        populationSize = tk.getPopSize();
+//        populationSize = 150; // TODO Check
     }
-    void createInitialPopulation(double ratio){
+    void createInitialPopulation(double _ratio){
         // Param for ratio?
         // Param for max depth
         //System.out.println(populationSize);
         for (int i = 0; i < populationSize; i++) { // populationSize
-            if (tk.rand.nextDouble() > ratio){
-                population.add(new Tree(1, 10, tk));
+            if (tk.rand.nextDouble() > _ratio){
+                population.add(new Tree(1, initialTreeDepth, tk));
 
             }
             else {
-                population.add(new Tree(0, 10, tk));
+                population.add(new Tree(0, initialTreeDepth, tk));
                 //System.out.println("Final " + population.get(i).getTreeValue());
             }
 
@@ -36,15 +36,16 @@ public class GeneticProgram extends Thread{
 
 
     public void run(){
-        try
-        {
+        try {
             long startTime = System.nanoTime();
             // Displaying the thread that is running
 //            System.out.println ("Thread " +
 //                    Thread.currentThread().getId() +
 //                    " is running");
-            ratio = tk.rand.nextDouble();
-            //ratio = 0.75; // Test
+            //ratio = tk.rand.nextDouble();
+            ratio = 0.01; // Test
+            maxTreeDepth = 20;
+            initialTreeDepth = 4;
             createInitialPopulation(ratio);
             //data/time_series_covid_19_confirmed.csv
             List<String[]> data = tk.readDataFile("post-operative.data");
@@ -52,7 +53,7 @@ public class GeneticProgram extends Thread{
             List<List<String[]>> allData = tk.splitData(dataFixed);
             List<String[]> train = allData.get(0);
             List<String[]> test = allData.get(1);
-            /*FileWriter csvWriter = new FileWriter("Results "+seed+".csv");
+            FileWriter csvWriter = new FileWriter("Results " + seed + ".csv");
 
             csvWriter.append("Gen"); // Gen
             csvWriter.append(",");
@@ -64,10 +65,9 @@ public class GeneticProgram extends Thread{
             csvWriter.append(",");
             csvWriter.append("Hits ratio");
             csvWriter.append(",");
-            csvWriter.append("Best MSE");
-            csvWriter.append(",");
-            csvWriter.append("Average MSE");
+            csvWriter.append("Accuracy");
             csvWriter.append("\n");
+
 
             csvWriter.append(Integer.toString(tournamentSize));
             csvWriter.append(",");
@@ -75,57 +75,58 @@ public class GeneticProgram extends Thread{
             csvWriter.append(",");
             csvWriter.append(Double.toString(ratio));
             csvWriter.append("\n");
+            double tmpAccForPrint = 0.0;
+            for (int i = 0; i < 10000; i++) { //400 generations
 
-            for (int i = 0; i < 400; i++) { //400 generations TODO Ran parameter tuning for 300
-                if (i%25==0){
-                    System.out.println("Gen: " + i);
+                if (i % 25 == 0) {
+                    System.out.println("Gen " + i + " best accuracy: " + tmpAccForPrint);
                 }
                 double sumAdjFit = 0.0;
-                double averageMSE = 0.0;
-                for (Tree t: population
+
+                for (Tree t : population
                 ) {
                     int correct = 0;
                     double total = 0.0;
                     double rawFitness = 0.0;
-                    for (String [] obj:data
+                    for (String[] obj : train
                     ) {
 
-                        Double temp = Double.parseDouble(obj.y) - t.getTreeValue(obj);
-                        rawFitness += (temp*temp); // square
+                        String temp = t.getTreeValue(obj);
+                        if (temp.equals(obj[8])) {
+                            rawFitness += 1;
 
-                        if (temp <= 0.01 && temp >= -0.01){
                             correct++;
+
                         }
 
                         total++;
 
                     }
-                    rawFitness = rawFitness/total;
+                    double acc = correct / total;
+                    rawFitness = total - correct;
 
-                    if (Double.isNaN(rawFitness) || rawFitness > 1.0E15){
-                        rawFitness = 1.0E15;
-                    }
-                    double mse = rawFitness;
-                    averageMSE += mse;
+//                    if (Double.isNaN(rawFitness) || rawFitness > 1.0E15){
+//                        rawFitness = 1.0E15;
+//                    }
                     rawFitness += t.getNumNodes(); // adds this to influence tree depth/ number on nodes
                     t.rawFitness = rawFitness;
                     t.standardizedFitness = rawFitness;
-                    double adjustedFitness = 1/ (rawFitness+1);
+                    double adjustedFitness = 1 / (rawFitness + 1);
                     t.adjustedFitness = adjustedFitness;
                     sumAdjFit += adjustedFitness;
                     t.hitsRatio = correct;
-                    t.mse = mse;
-                    if (correct >= (total-(total*0.15))){
+                    t.accuracy = acc;
+                    if (correct >= (total - (total * 0.15))) {
                         System.out.println("Early stop");
                         break;
                     }
                 }
-                for (Tree t: population
+                for (Tree t : population
                 ) {
-                    t.normalizedFitness = t.adjustedFitness/sumAdjFit;
+                    t.normalizedFitness = t.adjustedFitness / sumAdjFit;
                 }
                 Tree fittest = getFittest();
-                if (fittest!= null){
+                if (fittest != null) {
                     csvWriter.append(Integer.toString(i)); // Gen
                     csvWriter.append(",");
                     csvWriter.append(Double.toString(fittest.rawFitness));
@@ -137,9 +138,7 @@ public class GeneticProgram extends Thread{
                     csvWriter.append(Double.toString(fittest.hitsRatio));
 
                     csvWriter.append(",");
-                    csvWriter.append(Double.toString(fittest.mse));
-                    csvWriter.append(",");
-                    csvWriter.append(Double.toString(averageMSE/populationSize));
+                    csvWriter.append(Double.toString(fittest.accuracy));
                     csvWriter.append("\n");
 
                     //System.out.println("Gen " + i);
@@ -149,38 +148,124 @@ public class GeneticProgram extends Thread{
 //                    System.out.println("Fittest Normalized Fitness: " + fittest.normalizedFitness);
 //
 //                    System.out.println("Fittest Hits Ratio " + fittest.hitsRatio);
-                }
-                else {
+                    tmpAccForPrint = fittest.accuracy;
+                } else {
                     System.out.println("Error in fittest");
                 }
 
-                for (int j = 0; j < populationSize*0.5; j++) { // TODO Note: was 0.8 with parameter tuning
-                    for (int k = 0; k < 1; k++) { // TODO Note: was 10 with parameter tuning
-                        double rand = tk.rand.nextDouble();
-                        if (rand < 0.1){ // 10% range
-                            creation();
-                        }
-                        else if (rand < 0.45){ // 35% range
-                            mutation();
-                        }
-                        else if (rand < 0.7){ // 35% range
-                            crossover();
-                        }
-                        else if (rand < 0.9){ //20% range
-                            reproduction();
-                        }
+                for (int j = 0; j < populationSize * 0.5; j++) {
+                    // TODO maybe modify?
+                    double rand = tk.rand.nextDouble();
+                    if (rand < 0.1) { // 10% range
+                        creation();
+                    } else if (rand < 0.45) { // 35% range
+                        mutation();
+                    } else if (rand < 0.7) { // 35% range
+                        crossover();
+                    } else if (rand < 0.9) { //20% range
+                        reproduction();
                     }
 
+
+                }
+                //System.out.println("Gen " + i);
+                //System.out.println("Fittest Hits Ratio: " + fittest.hitsRatio);
+//                    System.out.println("Fittest Raw Fitness: " + fittest.rawFitness);
+//                    System.out.println("Fittest Adjusted Fitness: " + fittest.adjustedFitness);
+//                    System.out.println("Fittest Normalized Fitness: " + fittest.normalizedFitness);
+//
+//                    System.out.println("Fittest Hits Ratio " + fittest.hitsRatio);
+                tmpAccForPrint = fittest.accuracy;
+            }
+
+            for (int j = 0; j < populationSize * 0.5; j++) {
+                // TODO maybe modify?
+                double rand = tk.rand.nextDouble();
+                if (rand < 0.1) { // 10% range
+                    creation();
+                } else if (rand < 0.45) { // 35% range
+                    mutation();
+                } else if (rand < 0.7) { // 35% range
+                    crossover();
+                } else if (rand < 0.9) { //20% range
+                    reproduction();
+                }
+
+
+            }
+
+
+            double sumAdjFit = 0.0;
+
+            for (Tree t : population
+            ) {
+                int correct = 0;
+                double total = 0.0;
+                double rawFitness = 0.0;
+                for (String[] obj : test
+                ) {
+
+                    String temp = t.getTreeValue(obj);
+                    if (temp.equals(obj[8])) {
+                        rawFitness += 1;
+
+                        correct++;
+
+                    }
+
+                    total++;
+
+                }
+                double acc = correct / total;
+                rawFitness = total - correct;
+
+//                    if (Double.isNaN(rawFitness) || rawFitness > 1.0E15){
+//                        rawFitness = 1.0E15;
+//                    }
+                rawFitness += t.getNumNodes(); // adds this to influence tree depth/ number on nodes
+                t.rawFitness = rawFitness;
+                t.standardizedFitness = rawFitness;
+                double adjustedFitness = 1 / (rawFitness + 1);
+                t.adjustedFitness = adjustedFitness;
+                sumAdjFit += adjustedFitness;
+                t.hitsRatio = correct;
+                t.accuracy = acc;
+                if (correct >= (total - (total * 0.15))) {
+                    System.out.println("Early stop");
+                    break;
                 }
             }
-            long duration = System.nanoTime() - startTime;
-            csvWriter.append(Long.toString(duration));
-            csvWriter.append("\n");
-            csvWriter.flush();
-            csvWriter.close();
-            System.out.println("[+] GP thread complete");*/
+            for (Tree t : population
+            ) {
+                t.normalizedFitness = t.adjustedFitness / sumAdjFit;
+            }
+            Tree fittest = getFittest();
+            if (fittest != null) {
+                csvWriter.append("Final"); // Gen
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(fittest.rawFitness));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(fittest.adjustedFitness));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(fittest.normalizedFitness));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(fittest.hitsRatio));
+
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(fittest.accuracy));
+                csvWriter.append("\n");
+                long duration = System.nanoTime() - startTime;
+                csvWriter.append(Long.toString(duration));
+                csvWriter.append("\n");
+
+                csvWriter.flush();
+                csvWriter.close();
+                System.out.println("[+] GP thread complete");
 
 
+            } else {
+                System.out.println("Error in fittest");
+            }
         }
         catch (Exception e)
         {
@@ -298,22 +383,30 @@ public class GeneticProgram extends Thread{
         clone2.setSubtree(rand2, subtree1);
 
         int toReplace = tournamentSelectionReplace();
-        population.set(toReplace,clone1);
+        if (clone1.getDepth() < maxTreeDepth){
+            population.set(toReplace,clone1);
+        }
+
 
         toReplace = tournamentSelectionReplace();
-        population.set(toReplace,clone2);
+        if (clone2.getDepth() < maxTreeDepth){
+            population.set(toReplace,clone2);
+        }
+
     }
     void mutation(){
 
         Tree toMutate = tournamentSelection();
         int numNodes = toMutate.getNumNodes();
         int rand = tk.rand.nextInt(numNodes);
-        Tree newSubTree = new Tree(1, 10, tk);
+        Tree newSubTree = new Tree(1, initialTreeDepth, tk);
         Tree clone = toMutate.clone();
         clone.setSubtree(rand, newSubTree.root);
         int toReplace = tournamentSelectionReplace();
         //System.out.println(clone.getNumNodes()+" "+toMutate.getNumNodes());
-        population.set(toReplace,clone);
+        if (clone.getDepth() < maxTreeDepth){
+            population.set(toReplace,clone);
+        }
     }
     void creation(){
 
@@ -321,11 +414,11 @@ public class GeneticProgram extends Thread{
 
 
         if (tk.rand.nextDouble() > ratio){
-            population.set(toReplace, new Tree(1, 10, tk));
+            population.set(toReplace, new Tree(1, initialTreeDepth, tk));
 
         }
         else {
-            population.set(toReplace, new Tree(0, 10, tk));
+            population.set(toReplace, new Tree(0, initialTreeDepth, tk));
             //System.out.println("Final " + population.get(i).getTreeValue());
         }
     }

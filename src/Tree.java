@@ -9,6 +9,7 @@ public class Tree {
         adjustedFitness = 0.0;
         normalizedFitness = 0.10; // set to 0.10 so that new children don't get replaced as easily
         hitsRatio = 0;
+
         if (type == 0){
             // Full
             Full();
@@ -53,62 +54,51 @@ public class Tree {
     void Full(){
         String f = tk.getRandomFunction();
         root = new FunctionNode(f);
-        int currHeight = 0;
+        int currHeight = 1; // modified to reduce heap overflow?
         AddNodesFull(root, currHeight);
     }
     void AddNodesRandom(Node node, int currentDepth){
         if (Arrays.asList(tk.functionSet).contains(node.sValue) ){
-            if (tk.rand.nextDouble()>0.5 || currentDepth >= maxDepth){
-                node.children.add(new TerminalNode(tk.getRandomTerminal()));
-            }
-            else{
-                Node tmp = new FunctionNode(tk.getRandomFunction());
-                node.children.add(tmp);
-                AddNodesRandom(tmp, currentDepth + 1);
-            }
-
-            if (node.sValue != "v/"){
+            int numChildren = tk.getArity(node.sValue);
+           // System.out.println(node.sValue + " "+ numChildren);
+            for (int i = 0; i < numChildren; i++) {
                 if (tk.rand.nextDouble()>0.5 || currentDepth >= maxDepth){
                     node.children.add(new TerminalNode(tk.getRandomTerminal()));
                 }
                 else{
                     Node tmp = new FunctionNode(tk.getRandomFunction());
                     node.children.add(tmp);
-                    AddNodesRandom(tmp, currentDepth+1);
+                    AddNodesRandom(tmp, currentDepth + 1);
                 }
             }
+
         }
     }
 
     void AddNodesFull(Node node, int currentDepth){
         if (Arrays.asList(tk.functionSet).contains(node.sValue) ){
-            if (currentDepth >= maxDepth){
-                node.children.add(new TerminalNode(tk.getRandomTerminal()));
-            }
-            else{
-                Node tmp = new FunctionNode(tk.getRandomFunction());
-                node.children.add(tmp);
-                AddNodesRandom(tmp, currentDepth + 1);
-            }
+            int numChildren = tk.getArity(node.sValue);
+            //System.out.println(node.sValue + " "+ numChildren);
 
-            if (node.sValue != "v/"){
-                if (currentDepth >= maxDepth){
+            for (int i = 0; i < numChildren; i++) {
+                if (currentDepth >= maxDepth) {
                     node.children.add(new TerminalNode(tk.getRandomTerminal()));
-                }
-                else{
+                } else {
                     Node tmp = new FunctionNode(tk.getRandomFunction());
                     node.children.add(tmp);
-                    AddNodesRandom(tmp, currentDepth+1);
+                    //System.out.println(tmp.sValue);
+                    AddNodesFull(tmp, currentDepth + 1);
                 }
             }
+
         }
     }
 
-    /*double getTreeValue(CovidDataObject obj)
+    String getTreeValue(String [] obj)
     {
-        return root.getValue(obj);
+        return root.getValue(obj, tk);
 
-    }*/
+    }
 
     int getNumNodes(){
         return getNumNodesRecursive(root);
@@ -176,11 +166,25 @@ public class Tree {
         }
         return false;
     }
+    int getDepth(){
+        return getDepthRecursive(root);
+    }
+    int getDepthRecursive(Node n){
+        int highest = 0;
+        for (Node c: n.children
+             ) {
+            int temp = getDepthRecursive(c);
+            if (temp > highest){
+                highest = temp;
+            }
+        }
+        return highest+1;
+    }
 
     Node root;
     int maxDepth;
     Toolkit tk;
-    double rawFitness, standardizedFitness,adjustedFitness, normalizedFitness, mse;
+    double rawFitness, standardizedFitness,adjustedFitness, normalizedFitness, accuracy;
     int hitsRatio;
     int nodeNumberStorage;
 }

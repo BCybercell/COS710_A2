@@ -70,8 +70,8 @@ public class main {
         }
 /**/
 
-        int n = 10;
-        for (int i=0; i<1; i++)
+        int n = 25;
+        for (int i=0; i<n; i++)
         {
 
             long lSeed = globalTk.rand.nextLong();
