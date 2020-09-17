@@ -1,0 +1,1 @@
+80% accuracy required for early stop

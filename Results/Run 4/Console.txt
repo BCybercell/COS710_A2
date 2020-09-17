@@ -1,0 +1,456 @@
+"C:\Program Files\Java\jdk-14.0.2\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.1\lib\idea_rt.jar=63151:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.1\bin" -Dfile.encoding=UTF-8 -classpath "C:\2020\COS 710\Assignment 2\out\production\Assignment 2" main
+[*] Seed: 1600363119917
+[*] Seed 0: -1167101337339188120
+[*] Seed 1: 1823889169043989587
+[*] Seed 2: -1104426143892593204
+[*] Seed 3: 8543463388547065651
+[*] Seed 4: 1434321587503226961
+[*] Seed 5: 9219140109635352693
+[*] Seed 6: 5393971414567166791
+[*] Seed 7: -9163117635970560464
+[*] Seed 8: -1402402795792768
+[*] Seed 9: 6340195446227247302
+[*] Seed 10: -7419839712215473170
+[*] Seed 11: 1291198366303264548
+[*] Seed 12: 5968696944469872523
+[*] Seed 13: -3856380251846696120
+[*] Seed 14: -3402201765214754440
+[*] Seed 15: -8910537849822369021
+[*] Seed 16: -2276768268617597335
+[*] Seed 17: -3627072512012379905
+[*] Seed 18: -844834346233877953
+[*] Seed 19: -4643383774200479228
+[*] Seed 20: 5809535738799010038
+[*] Seed 21: -5536665398267147658
+[*] Seed 22: -7363512304592682560
+[*] Seed 23: -3968667869033867230
+[*] Seed 24: -6220022082262251406
+Train test ratio = 238:42
+Train test ratio = 234:46
+Train test ratio = 244:36
+Train test ratio = 230:50
+Train test ratio = 236:44
+Train test ratio = 236:44
+Train test ratio = 243:37
+Train test ratio = 231:49
+Train test ratio = 233:47
+Train test ratio = 239:41
+Train test ratio = 247:33
+Train test ratio = 228:52
+Train test ratio = 236:44
+Train test ratio = 241:39
+Train test ratio = 232:48
+Train test ratio = 235:45
+Train test ratio = 241:39
+Train test ratio = 236:44
+Train test ratio = 246:34
+Train test ratio = 237:43
+Train test ratio = 237:43
+Train test ratio = 229:51
+Train test ratio = 244:36
+Train test ratio = 242:38
+Train test ratio = 257:23
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 0 best accuracy: 0.0
+Gen 200 best accuracy: 0.6778242677824268
+Gen 200 best accuracy: 0.6556016597510373
+Gen 200 best accuracy: 0.7796610169491526
+Gen 200 best accuracy: 0.7203389830508474
+Gen 200 best accuracy: 0.6307053941908713
+Gen 200 best accuracy: 0.7622950819672131
+Gen 200 best accuracy: 0.6893617021276596
+Gen 200 best accuracy: 0.6761133603238867
+Gen 200 best accuracy: 0.6890756302521008
+Early stop
+[+] GP thread complete
+Gen 200 best accuracy: 0.6864406779661016
+Gen 200 best accuracy: 0.6608695652173913
+Gen 200 best accuracy: 0.6437768240343348
+Gen 200 best accuracy: 0.670995670995671
+Early stop
+[+] GP thread complete
+Gen 200 best accuracy: 0.6300813008130082
+Gen 200 best accuracy: 0.7205240174672489
+Gen 200 best accuracy: 0.6342412451361867
+Gen 200 best accuracy: 0.6213991769547325
+Gen 200 best accuracy: 0.7257383966244726
+Gen 200 best accuracy: 0.6413502109704642
+Gen 200 best accuracy: 0.6367521367521367
+Gen 200 best accuracy: 0.6311475409836066
+Gen 200 best accuracy: 0.6735537190082644
+Gen 200 best accuracy: 0.5646551724137931
+Gen 200 best accuracy: 0.6666666666666666
+Gen 200 best accuracy: 0.6483050847457628
+Gen 400 best accuracy: 0.7095435684647303
+Gen 400 best accuracy: 0.6778242677824268
+Gen 400 best accuracy: 0.7021276595744681
+Gen 400 best accuracy: 0.6970954356846473
+Gen 400 best accuracy: 0.6923076923076923
+Gen 400 best accuracy: 0.75
+Gen 400 best accuracy: 0.7815126050420168
+Gen 400 best accuracy: 0.6437768240343348
+Gen 400 best accuracy: 0.75
+Gen 400 best accuracy: 0.7347826086956522
+Early stop
+[+] GP thread complete
+Gen 400 best accuracy: 0.670995670995671
+Gen 400 best accuracy: 0.6463414634146342
+Gen 400 best accuracy: 0.7467248908296943
+Gen 400 best accuracy: 0.7257383966244726
+Gen 400 best accuracy: 0.6213991769547325
+Gen 600 best accuracy: 0.7021276595744681
+Gen 600 best accuracy: 0.6778242677824268
+Gen 400 best accuracy: 0.6848249027237354
+Gen 600 best accuracy: 0.7427385892116183
+Gen 400 best accuracy: 0.717948717948718
+Gen 600 best accuracy: 0.6929460580912863
+Gen 600 best accuracy: 0.7449392712550608
+Gen 400 best accuracy: 0.6680327868852459
+Gen 600 best accuracy: 0.75
+Gen 400 best accuracy: 0.6751054852320675
+Gen 400 best accuracy: 0.6735537190082644
+Gen 400 best accuracy: 0.6973684210526315
+Gen 600 best accuracy: 0.7347826086956522
+Gen 400 best accuracy: 0.6483050847457628
+Gen 400 best accuracy: 0.6379310344827587
+Gen 600 best accuracy: 0.7553648068669528
+Gen 600 best accuracy: 0.75
+Gen 600 best accuracy: 0.670995670995671
+Gen 800 best accuracy: 0.6778242677824268
+Gen 800 best accuracy: 0.7021276595744681
+Gen 600 best accuracy: 0.7763713080168776
+Gen 800 best accuracy: 0.7634854771784232
+Gen 800 best accuracy: 0.7468879668049793
+Gen 600 best accuracy: 0.7729257641921398
+Gen 800 best accuracy: 0.75
+Gen 800 best accuracy: 0.7449392712550608
+Gen 600 best accuracy: 0.6463414634146342
+Gen 600 best accuracy: 0.654320987654321
+Gen 600 best accuracy: 0.717948717948718
+Gen 800 best accuracy: 0.7347826086956522
+Gen 600 best accuracy: 0.7198443579766537
+Gen 600 best accuracy: 0.6751054852320675
+Gen 800 best accuracy: 0.7424892703862661
+Gen 800 best accuracy: 0.75
+Gen 600 best accuracy: 0.6680327868852459
+Gen 600 best accuracy: 0.6973684210526315
+Gen 600 best accuracy: 0.6810344827586207
+Gen 600 best accuracy: 0.7396694214876033
+Gen 1000 best accuracy: 0.6820083682008368
+Gen 1000 best accuracy: 0.7021276595744681
+Gen 800 best accuracy: 0.670995670995671
+Gen 600 best accuracy: 0.6949152542372882
+Gen 1000 best accuracy: 0.7634854771784232
+Gen 1000 best accuracy: 0.75
+Gen 1000 best accuracy: 0.7468879668049793
+Gen 1000 best accuracy: 0.7449392712550608
+Gen 1000 best accuracy: 0.7739130434782608
+Gen 800 best accuracy: 0.7729257641921398
+Gen 1000 best accuracy: 0.7424892703862661
+Gen 800 best accuracy: 0.717948717948718
+Gen 1000 best accuracy: 0.75
+Gen 800 best accuracy: 0.6790123456790124
+Gen 1200 best accuracy: 0.6820083682008368
+Gen 1200 best accuracy: 0.7574468085106383
+Gen 800 best accuracy: 0.7763713080168776
+Gen 1200 best accuracy: 0.75
+Gen 800 best accuracy: 0.6991869918699187
+Gen 1200 best accuracy: 0.7634854771784232
+Gen 1200 best accuracy: 0.7468879668049793
+Gen 800 best accuracy: 0.6919831223628692
+Early stop
+[+] GP thread complete
+Gen 800 best accuracy: 0.7396694214876033
+Gen 800 best accuracy: 0.6973684210526315
+Gen 1000 best accuracy: 0.670995670995671
+Early stop
+[+] GP thread complete
+Gen 800 best accuracy: 0.7198443579766537
+Gen 800 best accuracy: 0.6926229508196722
+Gen 800 best accuracy: 0.6982758620689655
+Gen 800 best accuracy: 0.7457627118644068
+Gen 1200 best accuracy: 0.7739130434782608
+Early stop
+[+] GP thread complete
+Gen 1200 best accuracy: 0.7424892703862661
+Gen 1200 best accuracy: 0.75
+Gen 1400 best accuracy: 0.7112970711297071
+Gen 1400 best accuracy: 0.7574468085106383
+Gen 1000 best accuracy: 0.7729257641921398
+Gen 1400 best accuracy: 0.7711864406779662
+Gen 1400 best accuracy: 0.7634854771784232
+Gen 1000 best accuracy: 0.7448559670781894
+Gen 1400 best accuracy: 0.7468879668049793
+Gen 1000 best accuracy: 0.717948717948718
+Gen 1000 best accuracy: 0.7046413502109705
+Gen 1200 best accuracy: 0.670995670995671
+Gen 1000 best accuracy: 0.75
+Gen 1000 best accuracy: 0.7396694214876033
+Gen 1000 best accuracy: 0.6991869918699187
+Gen 1000 best accuracy: 0.7431906614785992
+Gen 1400 best accuracy: 0.7424892703862661
+Gen 1400 best accuracy: 0.75
+Gen 1600 best accuracy: 0.7447698744769874
+Gen 1000 best accuracy: 0.7669491525423728
+Gen 1600 best accuracy: 0.7574468085106383
+Gen 1000 best accuracy: 0.6982758620689655
+Gen 1000 best accuracy: 0.7254098360655737
+Gen 1600 best accuracy: 0.7634854771784232
+Gen 1600 best accuracy: 0.7468879668049793
+Gen 1600 best accuracy: 0.7711864406779662
+Gen 1200 best accuracy: 0.7729257641921398
+Early stop
+Early stop
+[+] GP thread complete
+[+] GP thread complete
+Early stop
+[+] GP thread complete
+Gen 1200 best accuracy: 0.717948717948718
+Early stop
+[+] GP thread complete
+Gen 1200 best accuracy: 0.7613168724279835
+Gen 1200 best accuracy: 0.7046413502109705
+Gen 1200 best accuracy: 0.6991869918699187
+Gen 1600 best accuracy: 0.75
+Gen 1200 best accuracy: 0.7431906614785992
+Gen 1600 best accuracy: 0.7424892703862661
+Gen 1200 best accuracy: 0.768595041322314
+Gen 1800 best accuracy: 0.7574468085106383
+Gen 1400 best accuracy: 0.670995670995671
+Gen 1800 best accuracy: 0.7759336099585062
+Early stop
+Early stop
+[+] GP thread complete
+Gen 1800 best accuracy: 0.7711864406779662
+Gen 1200 best accuracy: 0.7327586206896551
+Gen 1400 best accuracy: 0.7729257641921398
+Gen 1200 best accuracy: 0.7254098360655737
+Gen 1400 best accuracy: 0.717948717948718
+Early stop
+[+] GP thread complete
+Gen 1400 best accuracy: 0.7257383966244726
+Gen 1400 best accuracy: 0.7613168724279835
+Early stop
+[+] GP thread complete
+Gen 1400 best accuracy: 0.6991869918699187
+Gen 1800 best accuracy: 0.7754237288135594
+Gen 1400 best accuracy: 0.7431906614785992
+Gen 2000 best accuracy: 0.7702127659574468
+Gen 1400 best accuracy: 0.768595041322314
+Gen 1800 best accuracy: 0.7424892703862661
+Gen 1400 best accuracy: 0.7586206896551724
+Gen 1600 best accuracy: 0.717948717948718
+Gen 1600 best accuracy: 0.670995670995671
+Gen 1400 best accuracy: 0.7540983606557377
+Gen 1600 best accuracy: 0.7613168724279835
+Gen 1600 best accuracy: 0.7130801687763713
+Gen 1600 best accuracy: 0.7276422764227642
+Gen 2000 best accuracy: 0.7754237288135594
+Gen 1600 best accuracy: 0.7431906614785992
+Early stop
+[+] GP thread complete
+Gen 2200 best accuracy: 0.7829787234042553
+Early stop
+[+] GP thread complete
+Gen 1800 best accuracy: 0.717948717948718
+Gen 2000 best accuracy: 0.7639484978540773
+Early stop
+[+] GP thread complete
+Gen 1600 best accuracy: 0.7704918032786885
+Gen 1800 best accuracy: 0.670995670995671
+Gen 1800 best accuracy: 0.759493670886076
+Gen 1800 best accuracy: 0.7276422764227642
+Gen 1800 best accuracy: 0.7431906614785992
+Gen 2400 best accuracy: 0.7829787234042553
+Gen 2200 best accuracy: 0.7754237288135594
+Gen 2000 best accuracy: 0.717948717948718
+Gen 2200 best accuracy: 0.7639484978540773
+Gen 2000 best accuracy: 0.7552742616033755
+Gen 1800 best accuracy: 0.7704918032786885
+Gen 2000 best accuracy: 0.670995670995671
+Gen 2000 best accuracy: 0.7520325203252033
+Early stop
+[+] GP thread complete
+Gen 2600 best accuracy: 0.7829787234042553
+Gen 2000 best accuracy: 0.7431906614785992
+Gen 2200 best accuracy: 0.717948717948718
+Gen 2400 best accuracy: 0.7754237288135594
+Gen 2400 best accuracy: 0.7639484978540773
+Gen 2200 best accuracy: 0.7848101265822784
+Gen 2200 best accuracy: 0.7723577235772358
+Gen 2800 best accuracy: 0.7829787234042553
+Gen 2200 best accuracy: 0.7431906614785992
+Gen 2400 best accuracy: 0.717948717948718
+Gen 2200 best accuracy: 0.7056277056277056
+Early stop
+[+] GP thread complete
+Gen 2600 best accuracy: 0.7754237288135594
+Early stop
+[+] GP thread complete
+Early stop
+[+] GP thread complete
+Gen 3000 best accuracy: 0.7702127659574468
+Gen 2400 best accuracy: 0.7431906614785992
+Gen 2600 best accuracy: 0.717948717948718
+Gen 2800 best accuracy: 0.7754237288135594
+Gen 2400 best accuracy: 0.7056277056277056
+Gen 3200 best accuracy: 0.7702127659574468
+Gen 2600 best accuracy: 0.7431906614785992
+Gen 2800 best accuracy: 0.717948717948718
+Gen 3000 best accuracy: 0.7754237288135594
+Gen 2600 best accuracy: 0.7056277056277056
+Gen 3000 best accuracy: 0.7435897435897436
+Gen 3400 best accuracy: 0.7702127659574468
+Gen 2800 best accuracy: 0.7431906614785992
+Gen 3200 best accuracy: 0.7754237288135594
+Gen 2800 best accuracy: 0.7056277056277056
+Gen 3200 best accuracy: 0.7435897435897436
+Gen 3600 best accuracy: 0.7702127659574468
+Gen 3000 best accuracy: 0.7431906614785992
+Gen 3400 best accuracy: 0.7754237288135594
+Gen 3400 best accuracy: 0.7435897435897436
+Gen 3800 best accuracy: 0.7702127659574468
+Gen 3000 best accuracy: 0.7056277056277056
+Gen 3200 best accuracy: 0.7431906614785992
+Gen 3600 best accuracy: 0.7754237288135594
+Gen 3600 best accuracy: 0.7435897435897436
+Gen 4000 best accuracy: 0.7702127659574468
+Gen 3400 best accuracy: 0.7431906614785992
+Gen 3200 best accuracy: 0.7056277056277056
+Gen 3800 best accuracy: 0.7754237288135594
+Gen 3800 best accuracy: 0.7435897435897436
+Gen 4200 best accuracy: 0.7702127659574468
+Gen 3600 best accuracy: 0.7431906614785992
+Gen 4000 best accuracy: 0.7754237288135594
+Gen 3400 best accuracy: 0.7056277056277056
+Gen 4000 best accuracy: 0.7435897435897436
+Gen 4400 best accuracy: 0.7702127659574468
+Early stop
+[+] GP thread complete
+Gen 3800 best accuracy: 0.7665369649805448
+Gen 3600 best accuracy: 0.7056277056277056
+Gen 4200 best accuracy: 0.7435897435897436
+Gen 4600 best accuracy: 0.7702127659574468
+Gen 4000 best accuracy: 0.7665369649805448
+Gen 4400 best accuracy: 0.7564102564102564
+Gen 4800 best accuracy: 0.7702127659574468
+Gen 3800 best accuracy: 0.7056277056277056
+Gen 4200 best accuracy: 0.7665369649805448
+Gen 4600 best accuracy: 0.7564102564102564
+Gen 5000 best accuracy: 0.7702127659574468
+Gen 4000 best accuracy: 0.7056277056277056
+Gen 4400 best accuracy: 0.7665369649805448
+Gen 4800 best accuracy: 0.7435897435897436
+Gen 5200 best accuracy: 0.7702127659574468
+Gen 4600 best accuracy: 0.7665369649805448
+Gen 4200 best accuracy: 0.7056277056277056
+Gen 5000 best accuracy: 0.7435897435897436
+Gen 5400 best accuracy: 0.7702127659574468
+Gen 4800 best accuracy: 0.7665369649805448
+Gen 5200 best accuracy: 0.7435897435897436
+Gen 4400 best accuracy: 0.7056277056277056
+Gen 5600 best accuracy: 0.7702127659574468
+Gen 5000 best accuracy: 0.7665369649805448
+Gen 5400 best accuracy: 0.7435897435897436
+Gen 5800 best accuracy: 0.7702127659574468
+Gen 4600 best accuracy: 0.7056277056277056
+Gen 5200 best accuracy: 0.7665369649805448
+Gen 5600 best accuracy: 0.7435897435897436
+Gen 6000 best accuracy: 0.7702127659574468
+Gen 4800 best accuracy: 0.7056277056277056
+Gen 5400 best accuracy: 0.7859922178988327
+Early stop
+[+] GP thread complete
+Gen 5800 best accuracy: 0.7564102564102564
+Gen 6200 best accuracy: 0.7702127659574468
+Gen 6000 best accuracy: 0.7435897435897436
+Gen 5000 best accuracy: 0.7056277056277056
+Gen 6400 best accuracy: 0.7702127659574468
+Gen 6200 best accuracy: 0.7435897435897436
+Gen 6600 best accuracy: 0.7702127659574468
+Gen 5200 best accuracy: 0.7056277056277056
+Gen 6400 best accuracy: 0.7435897435897436
+Gen 6800 best accuracy: 0.7702127659574468
+Gen 5400 best accuracy: 0.7056277056277056
+Gen 6600 best accuracy: 0.7435897435897436
+Gen 7000 best accuracy: 0.7702127659574468
+Gen 5600 best accuracy: 0.7056277056277056
+Gen 6800 best accuracy: 0.7435897435897436
+Gen 7200 best accuracy: 0.7702127659574468
+Gen 7000 best accuracy: 0.7435897435897436
+Gen 5800 best accuracy: 0.7056277056277056
+Gen 7400 best accuracy: 0.7702127659574468
+Gen 7200 best accuracy: 0.7435897435897436
+Gen 6000 best accuracy: 0.7056277056277056
+Gen 7600 best accuracy: 0.7702127659574468
+Gen 7400 best accuracy: 0.7435897435897436
+Gen 7800 best accuracy: 0.7702127659574468
+Gen 6200 best accuracy: 0.7056277056277056
+Gen 7600 best accuracy: 0.7435897435897436
+Gen 8000 best accuracy: 0.7702127659574468
+Gen 7800 best accuracy: 0.7435897435897436
+Gen 6400 best accuracy: 0.7056277056277056
+Gen 8200 best accuracy: 0.7702127659574468
+Gen 8000 best accuracy: 0.7435897435897436
+Gen 6600 best accuracy: 0.7056277056277056
+Gen 8400 best accuracy: 0.7702127659574468
+Gen 8200 best accuracy: 0.7435897435897436
+Gen 8600 best accuracy: 0.7702127659574468
+Gen 6800 best accuracy: 0.7056277056277056
+Gen 8400 best accuracy: 0.7435897435897436
+Gen 8800 best accuracy: 0.7702127659574468
+Gen 8600 best accuracy: 0.7435897435897436
+Gen 7000 best accuracy: 0.7056277056277056
+Gen 9000 best accuracy: 0.7702127659574468
+Gen 8800 best accuracy: 0.7435897435897436
+Gen 7200 best accuracy: 0.7056277056277056
+Gen 9200 best accuracy: 0.7702127659574468
+Gen 9000 best accuracy: 0.7435897435897436
+Gen 9400 best accuracy: 0.7702127659574468
+Gen 7400 best accuracy: 0.7056277056277056
+Gen 9200 best accuracy: 0.7435897435897436
+Gen 9600 best accuracy: 0.7702127659574468
+Gen 9400 best accuracy: 0.7435897435897436
+Gen 7600 best accuracy: 0.7056277056277056
+Gen 9800 best accuracy: 0.7702127659574468
+Gen 9600 best accuracy: 0.7435897435897436
+Gen 7800 best accuracy: 0.7056277056277056
+[+] GP thread complete
+Gen 9800 best accuracy: 0.7435897435897436
+Gen 8000 best accuracy: 0.7056277056277056
+[+] GP thread complete
+Gen 8200 best accuracy: 0.7056277056277056
+Gen 8400 best accuracy: 0.7056277056277056
+Gen 8600 best accuracy: 0.7056277056277056
+Gen 8800 best accuracy: 0.7056277056277056
+Gen 9000 best accuracy: 0.7056277056277056
+Gen 9200 best accuracy: 0.7056277056277056
+Gen 9400 best accuracy: 0.7056277056277056
+Gen 9600 best accuracy: 0.7056277056277056
+Gen 9800 best accuracy: 0.7056277056277056
+[+] GP thread complete
+
+Process finished with exit code 0
