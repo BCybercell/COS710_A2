@@ -1,0 +1,2 @@
+maxTreeDepth = 5
+            initialTreeDepth = 3

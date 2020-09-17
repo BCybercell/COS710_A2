@@ -10,10 +10,10 @@ public class GeneticProgram extends Thread{
         seed = _seed;
         tk = toolkit;
         population=new ArrayList<Tree>();
-        tournamentSize = tk.getTourSize();
-//        tournamentSize = 6; // TODO Check
-        populationSize = tk.getPopSize();
-//        populationSize = 150; // TODO Check
+//        tournamentSize = tk.getTourSize();
+        tournamentSize = 6; //
+//        populationSize = tk.getPopSize();
+        populationSize = 50; //
     }
     void createInitialPopulation(double _ratio){
         // Param for ratio?
@@ -38,14 +38,11 @@ public class GeneticProgram extends Thread{
     public void run(){
         try {
             long startTime = System.nanoTime();
-            // Displaying the thread that is running
-//            System.out.println ("Thread " +
-//                    Thread.currentThread().getId() +
-//                    " is running");
+
             //ratio = tk.rand.nextDouble();
             ratio = 0.00; // Full tree causing issues
-            maxTreeDepth = 25;
-            initialTreeDepth = 5;
+            maxTreeDepth = 15;
+            initialTreeDepth = 6;
             createInitialPopulation(ratio);
             //data/time_series_covid_19_confirmed.csv
             List<String[]> data = tk.readDataFile("post-operative.data");
@@ -77,7 +74,7 @@ public class GeneticProgram extends Thread{
             csvWriter.append("\n");
             double tmpAccForPrint = 0.0;
             int numGen = 10000;
-            for (int i = 0; i < numGen; i++) { //400 generations
+            for (int i = 0; i < numGen; i++) {
 
                 if (i % 200 == 0) {
                     System.out.println("Gen " + i + " best accuracy: " + tmpAccForPrint);
@@ -117,7 +114,7 @@ public class GeneticProgram extends Thread{
                     sumAdjFit += adjustedFitness;
                     t.hitsRatio = correct;
                     t.accuracy = acc;
-                    if (correct >= (total - (total * 0.15))) {
+                    if (correct >= (total - (total * 0.10))) { // TODO check in the next 100 runs (Tune between 80,85,90,95)
                         System.out.println("Early stop");
                         numGen = -1;
                         break;
@@ -156,7 +153,7 @@ public class GeneticProgram extends Thread{
                 }
 
                 for (int j = 0; j < populationSize * 0.5; j++) {
-                    // TODO maybe modify?
+                    // TODO maybe modify?   :: Should be fine???
                     double rand = tk.rand.nextDouble();
                     if (rand < 0.1) { // 10% range
                         creation();
