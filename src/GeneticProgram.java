@@ -215,7 +215,7 @@ public class GeneticProgram extends Thread{
                 sumAdjFit += adjustedFitness;
                 t.hitsRatio = correct;
                 t.accuracy = acc;
-                if (correct >= (total - (total * 0.15))) {
+                if (correct >= (total - (total * 0.15))) { // This is redundant code. From original parameter tuning
                     System.out.println("Early stop");
                     break;
                 }
