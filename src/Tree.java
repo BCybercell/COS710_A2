@@ -9,7 +9,9 @@ public class Tree {
         adjustedFitness = 0.0;
         normalizedFitness = 0.10; // set to 0.10 so that new children don't get replaced as easily
         hitsRatio = 0;
-
+        trainCE = 0;
+        testCE = 0;
+        avTrainCE = 0;
         if (type == 0){
             // Full
             Full();
@@ -187,4 +189,5 @@ public class Tree {
     double rawFitness, standardizedFitness,adjustedFitness, normalizedFitness, accuracy;
     int hitsRatio;
     int nodeNumberStorage;
+    long trainCE, testCE, avTrainCE;
 }
